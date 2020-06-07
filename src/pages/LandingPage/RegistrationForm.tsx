@@ -21,6 +21,8 @@ const formConfig = withFormik<Props, Values>({
         email: '',
     }),
 
+    mapPropsToStatus: () => ({}),
+
     handleSubmit: (values) => {
         console.log(values)
     },

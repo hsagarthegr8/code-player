@@ -3,6 +3,7 @@ import { CssBaseline, ThemeProvider } from '@material-ui/core'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { LandingPage } from './pages'
 import theme from './theme'
+import { Header } from './components'
 
 const App: FC = () => {
     return (
@@ -10,6 +11,7 @@ const App: FC = () => {
             <Router>
                 <ThemeProvider theme={theme}>
                     <CssBaseline />
+                    <Header />
                     <LandingPage />
                 </ThemeProvider>
             </Router>

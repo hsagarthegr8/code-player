@@ -1,11 +1,17 @@
 import { createMuiTheme } from '@material-ui/core'
-import green from '@material-ui/core/colors/green'
 
 const theme = createMuiTheme({
-    themeName: 'Code Player',
+    typography: {
+        h5: {
+            fontSize: '1.25rem',
+        },
+        h6: {
+            fontSize: '1rem',
+        },
+    },
     palette: {
         primary: {
-            main: green['A400'],
+            main: '#1ba94c',
         },
     },
     props: {
@@ -49,6 +55,15 @@ const theme = createMuiTheme({
         MuiSvgIcon: {
             root: {
                 margin: 'auto',
+            },
+        },
+        MuiAppBar: {
+            root: {
+                padding: 0,
+            },
+            colorPrimary: {
+                backgroundColor: '#39424e',
+                color: 'white',
             },
         },
     },

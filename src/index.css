@@ -13,3 +13,12 @@ code {
 .form-heading {
     margin-bottom: 15px !important;
 }
+
+.nav-link {
+    color: #b7c9cc;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: #fff;
+}

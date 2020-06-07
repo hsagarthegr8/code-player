@@ -54,7 +54,7 @@ class LoginForm extends Component<InjectedFormikProps<Props, Values>> {
         const { handleSubmit } = this.props
         return (
             <Paper elevation={3}>
-                <form onSubmit={handleSubmit}>
+                <form noValidate onSubmit={handleSubmit}>
                     <Grid container direction="row">
                         <Typography variant="h6" className="form-heading">
                             Login to your account
@@ -62,7 +62,7 @@ class LoginForm extends Component<InjectedFormikProps<Props, Values>> {
                         <TextField
                             fullWidth
                             name="username"
-                            placeholder="Username"
+                            placeholder="Username*"
                             onBlur={this.handleBlur}
                             InputProps={{
                                 startAdornment: (
@@ -75,7 +75,7 @@ class LoginForm extends Component<InjectedFormikProps<Props, Values>> {
                         <TextField
                             fullWidth
                             name="password"
-                            placeholder="Password"
+                            placeholder="Password*"
                             type="password"
                             onBlur={this.handleBlur}
                             InputProps={{
