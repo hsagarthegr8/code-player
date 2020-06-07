@@ -10,12 +10,12 @@ const TextField: FC<TextFieldProps> = (props) => {
     let { name } = props
     name = name as string
 
-    const { values, errors, touched, handleBlur, handleChange } = useFormikContext<FormContext>()
+    const { values, errors, touched, status, handleBlur, handleChange } = useFormikContext<FormContext>()
     return (
         <Input
             value={values[name]}
-            error={!!errors[name] && touched[name]}
-            helperText={touched[name] ? errors[name] : ''}
+            error={touched[name] && (!!status['root'] || !!status[name] || !!errors[name])}
+            helperText={touched[name] ? status[name] || errors[name] : ''}
             onChange={handleChange}
             onBlur={handleBlur}
             {...props}

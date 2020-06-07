@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Grid } from '@material-ui/core'
 import LoginForm from './LoginForm'
+import RegistrationForm from './RegistrationForm'
 
 class LandingPage extends Component {
     render() {
         return (
-            <Grid container justify="space-around">
+            <Grid container justify="space-around" alignItems="center">
                 <Grid item sm={12}>
                     Hello
                 </Grid>
@@ -13,7 +14,7 @@ class LandingPage extends Component {
                     <LoginForm />
                 </Grid>
                 <Grid item sm={4}>
-                    Hello
+                    <RegistrationForm />
                 </Grid>
             </Grid>
         )
