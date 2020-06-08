@@ -3,9 +3,11 @@ import { withFormik, InjectedFormikProps } from 'formik'
 import * as yup from 'yup'
 import { Grid, Paper, Button, Typography, InputAdornment } from '@material-ui/core'
 import { AccountBoxRounded, VpnKeyRounded } from '@material-ui/icons'
+import { connect } from 'react-redux'
 
 import { createStatusFromError } from '../../utils/forms'
 import { TextField } from '../../components/formik'
+import { logIn } from '../../store/auth/actions'
 import api from '../../api'
 
 interface Values {
@@ -13,7 +15,9 @@ interface Values {
     password: string
 }
 
-interface Props {}
+interface Props {
+    logIn: (token: string) => void
+}
 
 const formConfig = withFormik<Props, Values>({
     mapPropsToValues: () => ({
@@ -30,8 +34,9 @@ const formConfig = withFormik<Props, Values>({
 
     handleSubmit: (values, formikBag) => {
         const { setStatus } = formikBag
+        const { logIn } = formikBag.props
         api.post('login', values)
-            .then((res) => console.log(res))
+            .then((res) => logIn(res.data.token))
             .catch((err) => setStatus(createStatusFromError(err)))
     },
 })
@@ -98,4 +103,8 @@ class LoginForm extends Component<InjectedFormikProps<Props, Values>> {
     }
 }
 
-export default formConfig(LoginForm)
+const mapDispatchToProps = {
+    logIn,
+}
+
+export default connect(null, mapDispatchToProps)(formConfig(LoginForm))

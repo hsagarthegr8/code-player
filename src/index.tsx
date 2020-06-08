@@ -4,9 +4,22 @@ import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
+import { Provider } from 'react-redux'
+import { CssBaseline, ThemeProvider } from '@material-ui/core'
+import { BrowserRouter as Router } from 'react-router-dom'
+import theme from './theme'
+import store from './store'
+
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <Provider store={store}>
+            <Router>
+                <ThemeProvider theme={theme}>
+                    <CssBaseline />
+                    <App />
+                </ThemeProvider>
+            </Router>
+        </Provider>
     </React.StrictMode>,
     document.getElementById('root'),
 )
