@@ -22,3 +22,20 @@ code {
 .nav-link:hover {
     color: #fff;
 }
+
+#main {
+    padding: 30px;
+}
+
+.code-editor {
+    border: 1px solid lightgray;
+    width: 100% !important;
+}
+
+.form {
+    padding: 30px !important;
+}
+
+pre {
+    overflow-x: auto;
+}

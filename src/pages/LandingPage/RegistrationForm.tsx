@@ -30,7 +30,7 @@ const formConfig = withFormik<Props, Values>({
 
 const RegistrationForm: FC = () => {
     return (
-        <Paper elevation={3}>
+        <Paper elevation={3} className="form">
             <Grid container direction="row">
                 <Typography variant="h6" className="form-heading">
                     New User?? Register Here

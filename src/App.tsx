@@ -14,7 +14,7 @@ interface Props {
 const App: FC<Props> = (props) => {
     const { isLoggedIn } = props
     return (
-        <div className="App">
+        <div id="App">
             {!isLoggedIn ? (
                 <Switch>
                     <Route exact path="/">
@@ -27,7 +27,9 @@ const App: FC<Props> = (props) => {
             ) : (
                 <>
                     <Header />
-                    <Routes />
+                    <div id="main">
+                        <Routes />
+                    </div>
                 </>
             )}
         </div>

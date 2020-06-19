@@ -35,7 +35,8 @@ const formConfig = withFormik<Props, Values>({
     handleSubmit: (values, formikBag) => {
         const { setStatus } = formikBag
         const { logIn } = formikBag.props
-        api.post('login', values)
+        api()
+            .post('login', values)
             .then((res) => logIn(res.data.token))
             .catch((err) => setStatus(createStatusFromError(err)))
     },
@@ -58,7 +59,7 @@ class LoginForm extends Component<InjectedFormikProps<Props, Values>> {
     render() {
         const { handleSubmit } = this.props
         return (
-            <Paper elevation={3}>
+            <Paper elevation={3} className="form">
                 <form noValidate onSubmit={handleSubmit}>
                     <Grid container direction="row">
                         <Typography variant="h6" className="form-heading">

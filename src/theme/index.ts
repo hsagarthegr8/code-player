@@ -1,4 +1,5 @@
 import { createMuiTheme } from '@material-ui/core'
+import grey from '@material-ui/core/colors/grey'
 
 const theme = createMuiTheme({
     typography: {
@@ -8,10 +9,16 @@ const theme = createMuiTheme({
         h6: {
             fontSize: '1rem',
         },
+        button: {
+            textTransform: 'none',
+        },
     },
     palette: {
         primary: {
             main: '#1ba94c',
+        },
+        secondary: {
+            main: grey[400],
         },
     },
     props: {
@@ -23,7 +30,7 @@ const theme = createMuiTheme({
     overrides: {
         MuiPaper: {
             root: {
-                padding: 30,
+                padding: 15,
             },
         },
         MuiTextField: {
@@ -66,6 +73,8 @@ const theme = createMuiTheme({
                 color: 'white',
             },
         },
+
+        MuiLinearProgress: {},
     },
 })
 
