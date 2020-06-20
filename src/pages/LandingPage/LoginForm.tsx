@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import { createStatusFromError } from '../../utils/forms'
 import { TextField } from '../../components/formik'
 import { logIn } from '../../store/auth/actions'
-import api from '../../api'
+import { loginUserApi } from '../../api/auth'
 
 interface Values {
     username: string
@@ -32,13 +32,15 @@ const formConfig = withFormik<Props, Values>({
         password: yup.string().required().label('Password'),
     }),
 
-    handleSubmit: (values, formikBag) => {
+    handleSubmit: async (values, formikBag) => {
         const { setStatus } = formikBag
         const { logIn } = formikBag.props
-        api()
-            .post('login', values)
-            .then((res) => logIn(res.data.token))
-            .catch((err) => setStatus(createStatusFromError(err)))
+        try {
+            const res = await loginUserApi(values)
+            logIn(res.token)
+        } catch (err) {
+            setStatus(createStatusFromError(err))
+        }
     },
 })
 

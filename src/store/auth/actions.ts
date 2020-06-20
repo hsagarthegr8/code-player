@@ -17,6 +17,6 @@ export const logIn = (token: string): LogInAction => {
     }
 }
 
-export const LogOut = (): LogOutAction => ({
+export const logOut = (): LogOutAction => ({
     type: LOGOUT,
 })

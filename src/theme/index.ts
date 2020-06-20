@@ -8,6 +8,7 @@ const theme = createMuiTheme({
         },
         h6: {
             fontSize: '1rem',
+            fontWeight: 'bold',
         },
         button: {
             textTransform: 'none',
@@ -25,6 +26,16 @@ const theme = createMuiTheme({
         MuiTextField: {
             size: 'small',
             variant: 'outlined',
+        },
+        MuiPaper: {
+            square: true,
+        },
+        MuiChip: {
+            size: 'small',
+        },
+        MuiMenu: {
+            getContentAnchorEl: null,
+            anchorOrigin: { vertical: 'bottom', horizontal: 'center' },
         },
     },
     overrides: {
@@ -74,7 +85,18 @@ const theme = createMuiTheme({
             },
         },
 
-        MuiLinearProgress: {},
+        MuiMenu: {
+            paper: {
+                padding: '0 !important',
+            },
+        },
+
+        MuiChip: {
+            root: {
+                marginRight: 8,
+                marginBottom: 8,
+            },
+        },
     },
 })
 
